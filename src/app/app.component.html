@@ -1,0 +1,93 @@
+<div class="tfjs-example-container centered-container">
+  <section class="title-area">
+    <h1>TensorFlow.js RNN</h1>
+    <p class="subtitle">Sisendi võtmine ja mudeli treenimine</p>
+  </section>
+  <section>
+    <p class="section-head">Üldkirjeldus</p>
+    <p>
+      Kasutatud on Recurrent Neural Network (RNN) lahendust.
+      Mudelile antakse sisend ja mudel saab selle pinnalt ennast treenida.
+    </p>
+    <p>
+      Anname mudelile <span class="in-type">string</span> väärtuse
+      <span class="in-example">3 + 4</span>, mudel õpib, et tulemus on
+      <span class="out-type">number</span> näiteks
+      <span class="out-example">7</span>.
+    </p>
+    <p>
+      Treenimisandmed genereeritakse siin näites programmipõhiselt.
+    </p>
+  </section>
+
+  <div>
+    <section>
+      <p class="section-head">Juhtnöörid</p>
+      <p>
+        Vajuta "Treeni Mudelit" treenimise alustamiseks. Treeninguparameetreid on võimalik muuta.
+      </p>
+    </section>
+
+    <div class="controls with-rows">
+      <div class="settings">
+        <div class="setting">
+          <span class="setting-label">Numbri kohti:</span>
+          <input id="digits" value="2" />
+        </div>
+        <div class="setting">
+          <span class="setting-label">Treeningu suurus:</span>
+          <input id="trainingSize" value="5000" />
+        </div>
+        <div class="setting">
+          <span class="setting-label">RNN tüüp:</span>
+          <select id="rnnType">
+            <option value="SimpleRNN">LihtneRNN</option>
+            <option value="GRU">GRU</option>
+            <option value="LSTM">LSTM</option>
+          </select>
+        </div>
+        <div class="setting">
+          <span class="setting-label">RNN kihid:</span>
+          <input id="rnnLayers" value="1" />
+        </div>
+        <div class="setting">
+          <span class="setting-label">RNN varajatud kihi suurus:</span>
+          <input id="rnnLayerSize" value="128" />
+        </div>
+        <div class="setting">
+          <span class="setting-label">Batch'i suurus:</span>
+          <input id="batchSize" value="128" />
+        </div>
+        <div class="setting">
+          <span class="setting-label">Treeningu iteratsioone:</span>
+          <input id="trainIterations" value="100" />
+        </div>
+        <div class="setting">
+          <span class="setting-label">Testnäidete arv:</span>
+          <input id="numTestExamples" value="20" />
+        </div>
+      </div>
+
+      <div>
+        <span>
+          <button class="btn-primary" id="trainModel">Treeni Mudelit</button>
+        </span>
+      </div>
+    </div>
+
+    <section>
+      <p class="section-head">Treeningu progress</p>
+      <p id="trainStatus"></p>
+      <div class="with-cols">
+        <div id="lossChart"></div>
+        <div id="accuracyChart"></div>
+        <!-- <div id="examplesPerSecCanvas"></div> -->
+      </div>
+    </section>
+
+    <section>
+      <p class="section-head">Test näited</p>
+      <p id="testExamples"></p>
+    </section>
+  </div>
+</div>
